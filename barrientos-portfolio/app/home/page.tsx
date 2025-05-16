@@ -20,19 +20,37 @@ export default function Portfolio() {
           {/* Left Side: Text and Button */}
           <div className="md:w-1/2 text-center text-white md:text-left">
             <h1 className="text-4xl font-bold mb-4">Hi There,</h1>
-            <div className="flex">
-              <h1 className="text-5xl font-bold mb-4 mr-3">I'm</h1>
-              <h1 className="text-5xl font-bold mb-4 text-yellow-400">Charlene Barrientos</h1>
+            <div className="flex flex-wrap justify-center sm:justify-start items-center gap-2 sm:gap-4 text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4">I'm</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-4 text-yellow-400">Charlene Barrientos</h1>
             </div>
             <p className="text-lg text-white mb-6">
               I'm passionate about web development and creating amazing user experiences.
             </p>
+            <div className="flex items-center gap-4 justify-center md:justify-start">
             <button
               onClick={scrollToAbout}
               className="bg-transparent text-white border border-white px-6 py-2 rounded-lg hover:bg-gray-500 hover:text-white transition-colors duration-200 cursor-pointer"
             >
               About Me
             </button>
+            {/* GitHub Icon */}
+            <a
+              href="https://github.com/charleneprogramming"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.263.793-.587v-2.17c-3.338.725-4.033-1.613-4.033-1.613-.547-1.387-1.338-1.757-1.338-1.757-1.093-.75.088-.738.088-.738 1.207.088 1.838 1.238 1.838 1.238 1.073 1.837 2.813 1.306 3.5.994.113-.775.42-1.306.763-1.606-2.665-.3-5.467-1.337-5.467-5.93 0-1.313.468-2.388 1.238-3.238-.113-.3-.538-1.513.113-3.15 0 0 1.007-.325 3.3 1.238.956-.263 1.988-.4 3.013-.4 1.025 0 2.057.138 3.013.4 2.293-1.563 3.3-1.238 3.3-1.238.65 1.637.225 2.85.113 3.15.775.85 1.238 1.925 1.238 3.238 0 4.6-2.813 5.625-5.487 5.925.431.375.813 1.125.813 2.263v3.35c0 .325.188.7.8.587C20.563 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+            </a>
+            </div>
           </div>
 
           {/* Right Side: Image */}
@@ -173,8 +191,8 @@ export default function Portfolio() {
         
 
         {/* Carousel Section */}
-        <div className="mt-10">
-          <h1 className="text-3xl font-bold text-center mb-4">Web/Mobile Development Tools</h1>
+        <div className="mt-20">
+          <h1 className="text-3xl font-bold text-center">Web/Mobile Development Tools</h1>
           <Carousel />
         </div>
       </div>

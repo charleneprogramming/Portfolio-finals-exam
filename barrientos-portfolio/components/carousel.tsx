@@ -37,7 +37,7 @@ export default function Carousel() {
 
   return (
     <div className="w-4/4 mx-auto py-8 relative">
-      <div className="flex justify-center items-center relative h-[400px] bg-gray-800">
+      <div className="flex justify-center items-center relative h-[400px]">
         {images.map((item, index) => (
           <div
             key={index}
