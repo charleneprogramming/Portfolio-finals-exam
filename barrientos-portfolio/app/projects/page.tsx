@@ -1,83 +1,99 @@
+"use client";
 import Navbar from "@/components/Navbar";
+import { useState } from "react";
 
-export default function ImageContainers() {
-    const containers = [
-      {
-        id: 1,
-        image: "/images/coffee.jpg",
-        logo: "/images/coflogo.jpg",
-        description: "Digital Coffee Menu",
-      },
-      {
-        id: 2,
-        image: "/images/sign-2.jpg",
-        logo: "/images/SA.jpg",
-        description: "Grocery Budget Tracker",
-      },
-      {
-        id: 3,
-        image: "/images/acne.jpeg",
-        logo: "/images/pore.jpg",
-        description: "Pore Clogging Identifier",
-      },
-      {
-        id: 4,
-        image: "/images/don.jpg",
-        logo: "/images/donmac.jpg",
-        description: "Don Macchiatos Sales Monitoring System",
-      },
-      {
-        id: 5,
-        image: "/images/dog-5.jpg",
-        logo: "/images/Furever.png",
-        description: "Furever Home: Dog Rescue, Adoption, and Care System",
-      },
-      {
-        id: 6,
-        image: "/images/journal.jpg",
-        logo: "/images/journlogo.jpg",
-        description: "Daily Journal",
-      },
-    ];
-    return (
-        <div>
-          <Navbar />
-          <div className="min-h-screen bg-gray-800 flex flex-col items-center justify-center">
-            {/* Title */}
-            <div className="flex mt-12">
-            <h1 className="text-6xl font-bold text-white mb-8 mr-2.5">My</h1>
-            <h1 className="text-6xl font-bold text-yellow-400 mb-8">Projects</h1>
-            </div>
-      
-            {/* Grid Container */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 m-8">
-              {containers.map((container) => (
-                <div
-                  key={container.id}
-                  className="relative overflow-hidden rounded-lg shadow-lg group"
-                >
-                  {/* Image */}
-                  <img
-                    src={container.image}
-                    alt={`Image ${container.id}`}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-      
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <img
-                      src={container.logo}
-                      alt={`Logo ${container.id}`}
-                      className="w-16 h-16 mb-4 rounded-full"
-                    />
-                    <p className="text-white text-center text-bold px-4">{container.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+export default function Portfolio() {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
-           {/* Footer */}
+  const handleCardClick = (id: number) => {
+    setActiveCard(activeCard === id ? null : id); // Toggle overlay visibility
+  };
+
+  const containers = [
+    {
+      id: 1,
+      image: "/images/coffee.jpg",
+      logo: "/images/coflogo.jpg",
+      description: "Digital Coffee Menu",
+    },
+    {
+      id: 2,
+      image: "/images/sign-2.jpg",
+      logo: "/images/SA.jpg",
+      description: "Grocery Budget Tracker",
+    },
+    {
+      id: 3,
+      image: "/images/acne.jpeg",
+      logo: "/images/pore.jpg",
+      description: "Pore Clogging Identifier",
+    },
+    {
+      id: 4,
+      image: "/images/don.jpg",
+      logo: "/images/donmac.jpg",
+      description: "Don Macchiatos Sales Monitoring System",
+    },
+    {
+      id: 5,
+      image: "/images/dog-5.jpg",
+      logo: "/images/Furever.png",
+      description: "Furever Home: Dog Rescue, Adoption, and Care System",
+    },
+    {
+      id: 6,
+      image: "/images/journal.jpg",
+      logo: "/images/journlogo.jpg",
+      description: "Daily Journal",
+    },
+  ];
+
+  return (
+    <div>
+      <Navbar />
+      <div className="min-h-screen bg-gray-800 flex flex-col items-center justify-center">
+        {/* Title */}
+        <div className="flex mt-12">
+          <h1 className="text-6xl font-bold text-white mb-8 mr-2.5">My</h1>
+          <h1 className="text-6xl font-bold text-yellow-400 mb-8">Projects</h1>
+        </div>
+
+        {/* Grid Container */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 m-8">
+          {containers.map((container) => (
+            <div
+              key={container.id}
+              className="relative overflow-hidden rounded-lg shadow-lg group"
+              onClick={() => handleCardClick(container.id)} // Handle click for mobile
+            >
+              {/* Image */}
+              <img
+                src={container.image}
+                alt={`Image ${container.id}`}
+                className={`h-full w-full object-cover transition-transform duration-300 ${
+                  activeCard === container.id ? "scale-110" : "group-hover:scale-110"
+                }`}
+              />
+
+              {/* Overlay */}
+              <div
+                className={`absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center transition-opacity duration-300 ${
+                  activeCard === container.id ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                }`}
+              >
+                <img
+                  src={container.logo}
+                  alt={`Logo ${container.id}`}
+                  className="w-16 h-16 mb-4 rounded-full"
+                />
+                <p className="text-white text-center text-bold px-4">{container.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
       <footer className="bg-gray-800 text-white py-4">
         <div className="container mx-auto text-center">
           <p className="mb-4">&copy; {new Date().getFullYear()} Charlene Barrientos. All rights reserved.</p>
@@ -133,6 +149,6 @@ export default function ImageContainers() {
           </div>
         </div>
       </footer>
-        </div>
-      );
-  }
+    </div>
+  );
+}

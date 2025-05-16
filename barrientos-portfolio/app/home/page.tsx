@@ -1,7 +1,16 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Carousel from "@/components/carousel";
 
 export default function Portfolio() {
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about-section");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div>
       <Navbar />
@@ -12,32 +21,18 @@ export default function Portfolio() {
           <div className="md:w-1/2 text-center text-white md:text-left">
             <h1 className="text-4xl font-bold mb-4">Hi There,</h1>
             <div className="flex">
-            <h1 className="text-5xl font-bold mb-4 mr-3">I'm</h1>
-            <h1 className="text-5xl font-bold mb-4 text-yellow-400">Charlene Barrientos</h1>
+              <h1 className="text-5xl font-bold mb-4 mr-3">I'm</h1>
+              <h1 className="text-5xl font-bold mb-4 text-yellow-400">Charlene Barrientos</h1>
             </div>
             <p className="text-lg text-white mb-6">
               I'm passionate about web development and creating amazing user experiences.
             </p>
-            <div className="flex flex-col sm:flex-row items-center sm:justify-start justify-center gap-4 text-center sm:text-left">
-            <button className="bg-transparent text-white border border-white px-6 py-2 rounded-lg hover:bg-gray-500 hover:text-white transition-colors duration-200 cursor-pointer">
-                About Me
-            </button>
-            <a
-                href="https://github.com/charleneprogramming"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-400"
+            <button
+              onClick={scrollToAbout}
+              className="bg-transparent text-white border border-white px-6 py-2 rounded-lg hover:bg-gray-500 hover:text-white transition-colors duration-200 cursor-pointer"
             >
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                >
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.263.793-.587v-2.17c-3.338.725-4.033-1.613-4.033-1.613-.547-1.387-1.338-1.757-1.338-1.757-1.093-.75.088-.738.088-.738 1.207.088 1.838 1.238 1.838 1.238 1.073 1.837 2.813 1.306 3.5.994.113-.775.42-1.306.763-1.606-2.665-.3-5.467-1.337-5.467-5.93 0-1.313.468-2.388 1.238-3.238-.113-.3-.538-1.513.113-3.15 0 0 1.007-.325 3.3 1.238.956-.263 1.988-.4 3.013-.4 1.025 0 2.057.138 3.013.4 2.293-1.563 3.3-1.238 3.3-1.238.65 1.637.225 2.85.113 3.15.775.85 1.238 1.925 1.238 3.238 0 4.6-2.813 5.625-5.487 5.925.431.375.813 1.125.813 2.263v3.35c0 .325.188.7.8.587C20.563 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-            </a>
-            </div>
+              About Me
+            </button>
           </div>
 
           {/* Right Side: Image */}
@@ -51,36 +46,138 @@ export default function Portfolio() {
         </main>
       </div>
 
-      <div className="container bg-white mx-auto rounded-tl-lg rounded-tr-lg">
+      <div id="about-section" className="container bg-white mx-auto rounded-tl-lg rounded-tr-lg">
         {/* About Section */}
         <div className="container mx-auto my-12 p-8 flex flex-col md:flex-row items-center">
-        {/* Left Side: Image */}
-        <div className="md:w-1/2 flex justify-center mb-6 md:mb-0">
+          {/* Left Side: Image */}
+          <div className="md:w-1/2 flex justify-center mb-6 md:mb-0">
             <img
-            src="/images/about.png"
-            alt="About Me"
-            className="w-64 h-64 md:w-80 md:h-80 object-cover"
+              src="/images/about.png"
+              alt="About Me"
+              className="w-64 h-64 md:w-80 md:h-80 object-cover"
             />
-        </div>
+          </div>
 
-        {/* Right Side: Text */}
-        <div className="md:w-1/2 text-center md:text-left">
+          {/* Right Side: Text */}
+          <div className="md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl font-bold text-yellow-500 mb-4">About Me</h1>
             <p className="text-lg text-gray-700">
-            Seeking an opportunity to gain hands-on experience by applying knowledge from computer science coursework while eager to work in a dynamic environment where I can enhance my problem-solving skills, collaborate on real-world projects, and contribute to innovative solutions.
+              Seeking an opportunity to gain hands-on experience by applying knowledge from computer science coursework while eager to work in a dynamic environment where I can enhance my problem-solving skills, collaborate on real-world projects, and contribute to innovative solutions.
             </p>
+          </div>
         </div>
 
+           {/* Skills Section */}
+      <div className="mt-8 bg-gray-800 p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold text-white mb-4 text-center">My Skills</h2>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">HTML & CSS</p>
+            <p className="text-lg text-white">90%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-yellow-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "90%" }}
+            >
+              90
+            </div>
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">JavaScript</p>
+            <p className="text-lg text-white">80%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-blue-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "80%" }}
+            >
+              80
+            </div>
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">React</p>
+            <p className="text-lg text-white">70%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-blue-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "70%" }}
+            >
+              70
+            </div>
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">Next.js</p>
+            <p className="text-lg text-white">85%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-blue-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "85%" }}
+            >
+              85
+            </div>
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">Laravel</p>
+            <p className="text-lg text-white">65%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-blue-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "65%" }}
+            >
+              65
+            </div>
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">Flutter</p>
+            <p className="text-lg text-white">85%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-blue-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "85%" }}
+            >
+              85
+            </div>
+          </div>
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between items-center mb-1">
+            <p className="text-lg text-white">MySql</p>
+            <p className="text-lg text-white">85%</p>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-6 relative">
+            <div
+              className="bg-blue-600 h-6 rounded-full flex items-center justify-center text-gray-300 text-sm font-bold"
+              style={{ width: "85%" }}
+            >
+              85
+            </div>
+          </div>
+        </div>
       </div>
+    
+        
 
         {/* Carousel Section */}
-        <div className="mt-8">
-            <h1 className="text-3xl font-bold text-center mb-4">Web/Mobile Development Tools</h1>
-            <Carousel />
+        <div className="mt-10">
+          <h1 className="text-3xl font-bold text-center mb-4">Web/Mobile Development Tools</h1>
+          <Carousel />
         </div>
-
       </div>
-
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-4">
